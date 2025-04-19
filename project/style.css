@@ -958,15 +958,15 @@ nav {
         max-width: auto;
     }
 
-    .works-heading h3 {
-        font-size: 1.7em;
+    .works-heading {
+        display: none;
     }
 
     .project-content h3{
         font-size: 1.5em;
     }
     .project-role, .project-year{
-        font-size: .9em;
+        font-size: 1.3em;
         margin-bottom: 0;
     }
 
@@ -975,7 +975,7 @@ nav {
     }
 
     .project-description p, li{
-        font-size: .7em;
+        font-size: 1em;
     }
 
     .project-details{
@@ -983,7 +983,7 @@ nav {
     }
 
     .tech-tag {
-        font-size: .7em;
+        font-size: 1em;
     }
 
 
@@ -1137,15 +1137,15 @@ nav {
     }
 
     .skills p{
-        font-size: .7rem;
+        font-size: 1.2rem;
     }
 
     .skills p .highlight{
-        font-size: .7rem;
+        font-size: 1.2rem;
     }
 
     .skills .tech-tag{
-        font-size: .7em;
+        font-size: 1.2em;
     }
 
 
