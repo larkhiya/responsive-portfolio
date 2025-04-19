@@ -1,3 +1,7 @@
+
+// Add this at the beginning of your script
+emailjs.init("tgXoTj-OkzK_sIMl5");
+
 // Function to create mobile project images
 function setupMobileProjectImages() {
     const projects = document.querySelectorAll('.project');
@@ -334,7 +338,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
     
-    // Optional: Add this to clear error styling when user focuses on field
     document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(element => {
         element.addEventListener('focus', function() {
             this.classList.remove('error');
