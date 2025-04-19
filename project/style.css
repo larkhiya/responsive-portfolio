@@ -178,7 +178,7 @@ nav {
     font-size: 3rem;
     font-weight: 300;
     margin: 0;
-    line-height: 0;
+    line-height: 1;
 }
 
 .hero h2 {
@@ -187,6 +187,7 @@ nav {
     font-weight: 900;
     font-size: 4.5rem;
     margin-bottom: 1rem;
+    line-height: 1;
 }
 
 .dwnl-btn {
@@ -622,6 +623,14 @@ nav {
         margin-left: 80px;
     }
 }
+
+@media (max-width: 768px) {
+    .timeline-content.left,
+    .timeline-content.right {
+      width: 90%; /* Reduce from 100% */
+      margin: 0 auto;
+    }
+  }
 
 /* Additional adjustments for even smaller screens */
 /* Base timeline styles (for larger screens first - above 1120px) */
@@ -1359,6 +1368,7 @@ button:hover {
     }
 
     .logo-container {
+        position: static;
         display: none; /* Hide the logo container completely */
     }
 
