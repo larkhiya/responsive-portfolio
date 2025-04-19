@@ -15,9 +15,17 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'FigtreeLight';
+    src: url('fonts/Figtree-Light.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+
 
 :root {
-    --primary-color: #01EBC3;
+    --primary-color: hsl(170, 99%, 46%);
     --secondary-color: #20C0A5;
     --dark-bg: #1E2124;
     --darker-bg: #171A1C;
@@ -298,8 +306,8 @@ nav {
 .title {
     color: #0ce3ac;
     font-family: 'Poppins';
-    font-size: 2.3rem;
-    font-weight: 600;
+    font-size: 36px;
+    font-weight: 800;
     margin-bottom: 7vh;
     margin-top: 5vh;
     align-self: center;
@@ -309,93 +317,138 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1em 5em 0em 5em;
+    justify-content: center;
 }
 
 .profile-content-wrapper {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     text-align: left;
     gap: 20vh;
     margin-bottom: 60px;
 }
-
 .image-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 0 0 auto;
+    position: relative; /* For positioning the gradient bubble */
+}
+/* Gradient bubble background */
+.image-section::before {
+    content: '';
+    position: absolute;
+    width: 130%;
+    height: 120%;
+    bottom: -7.5%;
+    /* left: -3.5%; */
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, 
+                #00ffcc4d, 
+                hsla(192, 100%, 50%, 0.2), 
+                hsla(170, 99%, 46%,0.8));
+    filter: blur(15px);
+    z-index: -1;
+    transition: all 0.3s ease;
+    transform-origin: center center;
 }
 
 .profile-image-container {
-    width: 220px;
-    height: 220px;
+    width: 385px;
+    height: 385px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
     background-color: #0a1520;
+    position: relative;
+    z-index: 1; /* Ensure image stays above the gradient */
 }
-
 .profile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .intro-text {
     font-family: 'Poppins';
-    font-weight: bold;
-    font-size: 2em;
+    font-weight: 600;
+    font-size: 2.5em;
     margin-bottom: 15px;
     text-align: center;
 }
-
 .highlight {
     font-family: 'Poppins';
-    font-weight: bold;
-    color: #0ce3ac;
+    font-weight: 600;
+    color: var(--primary-color);
 }
-
 .text-section {
     font-family: 'Figtree';
     flex: 1;
     max-width: 600px;
 }
-
 .tagline {
-    color: #0ce3ac;
+    color: var(--primary-color);
+    font-family: 'FigtreeExtraBold';
     font-weight: bold;
     font-size: 1.7rem;
     margin-bottom: 25px;
     text-align: center;
 }
-
 .bio-text {
-    font-weight: light;
+    font-family: 'FigtreeLight';
+    font-weight: 100;
     font-size: 1.1rem;
     line-height: 1.6;
     text-align: justify;
 }
-
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .profile-content-wrapper {
         flex-direction: column;
         align-items: center;
+        gap: 5vh; /* Reduced gap for smaller screens */
     }
-
+   
+    .intro-text {
+        margin-bottom: 5px;
+        font-size: 2em; /* Slightly reduced font size */
+    }
+    
+    .tagline {
+        margin-bottom: 15px; /* Reduced margin */
+        font-size: 1.5rem; /* Slightly reduced font size */
+    }
+    
     .text-section {
         text-align: center;
+        padding: 0px 0px;
+        margin-top: 10px; /* Added small margin to create some space */
     }
-
+    
     .bio-text {
         text-align: center;
-        padding: 0 20px;
+        padding: 0 10px 0 20px;
     }
-
+    
+    /* Adjust gradient bubble for smaller screens */
     .profile-image-container {
-        width: 180px;
-        height: 180px;
+        width: 300px;
+        height: 300px;
+    }
+    
+    /* The bubble will automatically adjust with the percentages */
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+    .profile-image-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    /* Adjust bubble glow intensity for smaller screens */
+    .image-section::before {
+        filter: blur(10px);
     }
 }
 
@@ -573,7 +626,7 @@ nav {
 }
 
 /* Additional adjustments for even smaller screens */
-css/* Base timeline styles (for larger screens first - above 1120px) */
+/* Base timeline styles (for larger screens first - above 1120px) */
 .timeline {
     position: relative;
     padding: 10px 0;
@@ -830,7 +883,6 @@ css/* Base timeline styles (for larger screens first - above 1120px) */
 }
 
 .works h2 {
-    color: var(--primary-color);
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -839,7 +891,7 @@ css/* Base timeline styles (for larger screens first - above 1120px) */
     color: var(--primary-color);
     font-size: 2rem;
     margin-bottom: 2rem;
-    text-align: left;
+    margin-left: 1vh;
     align-items: center;
     padding-left: 0;
 }

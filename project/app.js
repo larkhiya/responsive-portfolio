@@ -30,6 +30,61 @@ function setupMobileProjectImages() {
 // JavaScript for interactive elements
 document.addEventListener('DOMContentLoaded', function () {
     // Smooth scrolling for navigation links
+    const imageSection = document.querySelector('.image-section');
+    
+    // Only add the effect if we found the image section
+    if (imageSection) {
+        // Add a style element for the CSS variables
+        const style = document.createElement('style');
+        style.textContent = `
+            .image-section::before {
+                transform: translate(var(--bubble-x, 0), var(--bubble-y, 0)) 
+                           rotate(var(--bubble-rotate, 0)) 
+                           scale(var(--bubble-scale, 1));
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Only track movement when directly over the image section
+        imageSection.addEventListener('mousemove', function(e) {
+            // Get the bounding rectangle of the image section
+            const rect = imageSection.getBoundingClientRect();
+            
+            // Calculate the center of the image
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            // Calculate how far the cursor is from the center
+            const distX = (e.clientX - centerX) / rect.width * 2; // Normalized to -1 to 1
+            const distY = (e.clientY - centerY) / rect.height * 2; // Normalized to -1 to 1
+            
+            // Maximum movement in pixels
+            const maxMove = 20;
+            
+            // Apply the transform to the bubble
+            imageSection.style.setProperty('--bubble-x', `${distX * maxMove}px`);
+            imageSection.style.setProperty('--bubble-y', `${distY * maxMove}px`);
+            
+            // Rotate based on cursor position
+            const rotateValue = distX * 8; // Max 8 degrees
+            imageSection.style.setProperty('--bubble-rotate', `${rotateValue}deg`);
+            
+            // Apply a subtle scale effect based on distance from center
+            const distance = Math.sqrt(distX * distX + distY * distY);
+            const scaleValue = 1.05 + distance * 0.05; // Max ~10% larger
+            imageSection.style.setProperty('--bubble-scale', scaleValue);
+        });
+        
+        // Reset when the mouse leaves the image section
+        imageSection.addEventListener('mouseleave', function() {
+            // Smoothly animate back to original position
+            imageSection.style.setProperty('--bubble-x', '0px');
+            imageSection.style.setProperty('--bubble-y', '0px');
+            imageSection.style.setProperty('--bubble-rotate', '0deg');
+            imageSection.style.setProperty('--bubble-scale', '1');
+        });
+    }
+    
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
