@@ -1353,10 +1353,30 @@ button:hover {
 
 
 .autoBlur {
-    animation: autoBlurAnimation linear both;
-    animation-timeline: view();
+    /* Default fade-in animation for browsers that don't support scroll-driven animations */
+    animation: fadeInAnimation 1s ease forwards;
 }
 
+@supports (animation-timeline: view()) {
+    .autoBlur {
+        /* Use the original blur animation with view timeline when supported */
+        animation: autoBlurAnimation linear both;
+        animation-timeline: view();
+        animation-duration: unset;
+    }
+}
+
+/* Simple fade-in animation for fallback */
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Original blur animation for supported browsers */
 @keyframes autoBlurAnimation {
     0% {
         filter: blur(40px);
