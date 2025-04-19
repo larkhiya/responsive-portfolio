@@ -99,15 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Contact button functionality
-    document.querySelector('.contact-btn').addEventListener('click', function () {
-        alert("Contact form coming soon! Please email me at larkhiya@example.com");
-    });
-
-    // Download CV button
-    document.querySelector('.dwnl-btn').addEventListener('click', function () {
-        alert("CV download will be available soon!");
-    });
 
     // Animation for timeline items
     const timelineItems = document.querySelectorAll('.timeline-item');
@@ -267,22 +258,87 @@ document.addEventListener('DOMContentLoaded', function () {
         const subject = document.getElementById('subject').value;
         const message = document.getElementById('message').value;
         
-        // This is where you would normally set up your email functionality
-        // For a real implementation, you would need to use a backend service or API
+        // Validate form fields (basic validation)
+        if (!name || !email || !subject || !message) {
+            // Optional: You could add inline validation messages instead of alerts
+            if (!name) document.getElementById('name').classList.add('error');
+            if (!email) document.getElementById('email').classList.add('error');
+            if (!subject) document.getElementById('subject').classList.add('error');
+            if (!message) document.getElementById('message').classList.add('error');
+            return;
+        }
         
-        // Example using a serverless function or API endpoint (you would need to create this)
-        // const formData = { name, email, subject, message };
-        // fetch('your-api-endpoint/send-email', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(formData)
-        // })
+        // Email validation with regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            document.getElementById('email').classList.add('error');
+            return;
+        }
         
-        // For now, let's just show a success message
-        alert('Thank you for your message! We will get back to you soon.');
+        // Show loading state
+        const submitButton = document.querySelector('#contactForm button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
         
-        // Reset the form
-        this.reset();
+        // Prepare form data
+        const formData = {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        };
+        
+        // Send data using EmailJS
+        emailjs.send('service_mgvr2ou', 'template_qrg4dxm', formData, 'tgXoTj-OkzK_sIMl5')
+            .then(function(response) {
+                // Success - no alert, just reset the form
+                document.getElementById('contactForm').reset();
+                
+                // Optional: Show success feedback in the form itself
+                const formContainer = document.getElementById('contactForm').parentNode;
+                const successMessage = document.createElement('div');
+                successMessage.className = 'success-message';
+                successMessage.innerHTML = 'Message sent!';
+                formContainer.appendChild(successMessage);
+                
+                // Remove success message after 3 seconds
+                setTimeout(() => {
+                    if (successMessage.parentNode) {
+                        successMessage.parentNode.removeChild(successMessage);
+                    }
+                }, 3000);
+            })
+            .catch(function(error) {
+                // Handle error without alert
+                console.error('Email send failed:', error);
+                
+                // Optional: Add inline error message
+                const formContainer = document.getElementById('contactForm').parentNode;
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'error-message';
+                errorMessage.innerHTML = 'Failed to send message. Please try again or contact me directly.';
+                formContainer.appendChild(errorMessage);
+                
+                // Remove error message after 5 seconds
+                setTimeout(() => {
+                    if (errorMessage.parentNode) {
+                        errorMessage.parentNode.removeChild(errorMessage);
+                    }
+                }, 5000);
+            })
+            .finally(function() {
+                // Reset button state
+                submitButton.textContent = originalButtonText;
+                submitButton.disabled = false;
+            });
+    });
+    
+    // Optional: Add this to clear error styling when user focuses on field
+    document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(element => {
+        element.addEventListener('focus', function() {
+            this.classList.remove('error');
+        });
     });
 
     new FinisherHeader({
