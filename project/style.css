@@ -971,9 +971,10 @@ nav {
         display: none;
     }
 
-    .project-content h3{
-        font-size: 1.5em;
+    .project-name{
+        font-size: 1em;
     }
+
     .project-role, .project-year{
         font-size: .8em;
         margin-bottom: 0;
@@ -984,15 +985,17 @@ nav {
     }
 
     .project-description p, li{
+        margin-top: 10px;
         font-size: 1em;
     }
 
     .project-details {
-        margin-bottom: 1.5em;
+        margin-bottom: 15px;
     }
 
     .tech-tag {
         font-size: 1em;
+        margin-bottom: 5px;
     }
 
 
