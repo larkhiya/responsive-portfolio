@@ -127,8 +127,10 @@ nav {
     font-size: 1rem;
 }
 
-.nav-links img, .contact-btn img {
-    height: 15px; /* Adjust based on your design */
+.nav-links img,
+.contact-btn img {
+    height: 15px;
+    /* Adjust based on your design */
     width: auto;
     margin-right: 5px;
     vertical-align: middle;
@@ -157,7 +159,6 @@ nav {
     background-color: var(--secondary-color);
     color: var(--dark-bg);
 }
-
 
 /* Hero Section */
 
@@ -214,10 +215,18 @@ nav {
 }
 
 @media (max-width: 630px) {
-    .nav-links{
+    .nav-links {
         display: none;
     }
-    
+
+   .hero h1 {
+        font-size: 1.5em;
+    }
+
+    .hero h2 {
+        font-size: 2em;
+    }
+
 }
 
 .about {
@@ -327,13 +336,16 @@ nav {
     gap: 20vh;
     margin-bottom: 60px;
 }
+
 .image-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 0 0 auto;
-    position: relative; /* For positioning the gradient bubble */
+    position: relative;
+    /* For positioning the gradient bubble */
 }
+
 /* Gradient bubble background */
 .image-section::before {
     content: '';
@@ -343,10 +355,10 @@ nav {
     bottom: -7.5%;
     /* left: -3.5%; */
     border-radius: 50%;
-    background: radial-gradient(circle at 50% 50%, 
-                #00ffcc4d, 
-                hsla(192, 100%, 50%, 0.2), 
-                hsla(170, 99%, 46%,0.8));
+    background: radial-gradient(circle at 50% 50%,
+            #00ffcc4d,
+            hsla(192, 100%, 50%, 0.2),
+            hsla(170, 99%, 46%, 0.8));
     filter: blur(15px);
     z-index: -1;
     transition: all 0.3s ease;
@@ -361,13 +373,16 @@ nav {
     margin-bottom: 20px;
     background-color: #0a1520;
     position: relative;
-    z-index: 1; /* Ensure image stays above the gradient */
+    z-index: 1;
+    /* Ensure image stays above the gradient */
 }
+
 .profile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .intro-text {
     font-family: 'Poppins';
     font-weight: 600;
@@ -375,16 +390,19 @@ nav {
     margin-bottom: 15px;
     text-align: center;
 }
+
 .highlight {
     font-family: 'Poppins';
     font-weight: 600;
     color: var(--primary-color);
 }
+
 .text-section {
     font-family: 'Figtree';
     flex: 1;
     max-width: 600px;
 }
+
 .tagline {
     color: var(--primary-color);
     font-family: 'FigtreeExtraBold';
@@ -393,6 +411,7 @@ nav {
     margin-bottom: 25px;
     text-align: center;
 }
+
 .bio-text {
     font-family: 'FigtreeLight';
     font-weight: 100;
@@ -400,237 +419,64 @@ nav {
     line-height: 1.6;
     text-align: justify;
 }
+
 /* Responsive adjustments */
 @media (max-width: 1000px) {
     .profile-content-wrapper {
         flex-direction: column;
         align-items: center;
-        gap: 5vh; /* Reduced gap for smaller screens */
+        gap: 5vh;
+        /* Reduced gap for smaller screens */
     }
-   
+
     .intro-text {
         margin-bottom: 5px;
-        font-size: 2em; /* Slightly reduced font size */
+        font-size: 2em;
+        /* Slightly reduced font size */
     }
-    
+
     .tagline {
-        margin-bottom: 15px; /* Reduced margin */
-        font-size: 1.5rem; /* Slightly reduced font size */
+        margin-bottom: 15px;
+        /* Reduced margin */
+        font-size: 1.3rem;
+        /* Slightly reduced font size */
     }
-    
+
     .text-section {
         text-align: center;
         padding: 0px 0px;
-        margin-top: 10px; /* Added small margin to create some space */
+        margin-top: 10px;
+        /* Added small margin to create some space */
     }
-    
+
     .bio-text {
         text-align: center;
         padding: 0 10px 0 20px;
+        font-size: .8rem;
     }
-    
+
     /* Adjust gradient bubble for smaller screens */
     .profile-image-container {
         width: 300px;
         height: 300px;
     }
-    
+
     /* The bubble will automatically adjust with the percentages */
 }
 
 /* For even smaller screens */
 @media (max-width: 480px) {
     .profile-image-container {
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
     }
-    
+
     /* Adjust bubble glow intensity for smaller screens */
     .image-section::before {
         filter: blur(10px);
     }
 }
 
-/* Education Section */
-.timeline {
-    position: relative;
-    padding: 10px 0;
-    max-width: 80%;
-    margin: 20px auto;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    height: 90%;
-    width: 4px;
-    background-color: var(--primary-color);
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.timeline-item {
-    display: flex;
-    position: relative;
-    margin-bottom: 120px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-}
-
-.timeline-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.timeline-content {
-    margin-top: 1em;
-    position: relative;
-    padding: 20px;
-    background-color: rgba(48, 64, 64, 0.5);
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-}
-
-.timeline-content.left {
-    margin-right: 25em;
-    text-align: right;
-    right: 8%;
-    width: 50%;
-}
-
-.timeline-content.right {
-    margin-left: 30em;
-    text-align: left;
-    left: 8%;
-    width: 50%;
-}
-
-.timeline-icon {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: 50%;
-    top: 20px;
-    transform: translateX(-50%);
-    z-index: 2;
-    box-shadow: 0 0 0 4px rgba(0, 229, 201, 0.2);
-    transition: all 0.3s ease;
-}
-
-.timeline-icon img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.timeline-icon:hover {
-    transform: translateX(-50%) scale(1.1);
-    box-shadow: 0 0 0 8px rgba(0, 229, 201, 0.2);
-}
-
-.timeline-year {
-    font-family: 'FigtreeExtrabold';
-    position: absolute;
-    font-size: 2em;
-    font-weight: bold;
-    color: var(--primary-color);
-    top: 20px;
-    width: 8em;
-}
-
-.timeline-year.left {
-    left: 18%;
-    text-align: right;
-}
-
-.timeline-year.right {
-    right: 18%;
-    text-align: left;
-}
-
-.timeline-school {
-    font-family: 'PoppinsExtraBold';
-    font-size: 1.5rem;
-    font-weight: bolder;
-    margin-bottom: 8px;
-}
-
-.timeline-program {
-    color: var(--primary-color);
-    font-family: 'Figtree';
-    font-size: 1rem;
-    font-style: italic;
-    margin-bottom: 6px;
-}
-
-.timeline-achievements {
-    font-size: 1.1rem;
-    line-height: 1.4;
-}
-
-/* Media query for screens 1120px and below */
-@media (max-width: 1120px) {
-    .timeline {
-        max-width: 90%;
-    }
-    
-    .timeline::before {
-        left: 40px; /* Timeline on the left side for smaller screens */
-        transform: none;
-    }
-    
-    .timeline-item {
-        flex-direction: column;
-    }
-    
-    .timeline-content.left,
-    .timeline-content.right {
-        width: calc(100% - 80px);
-        margin-left: 80px;
-        margin-right: 0;
-        text-align: left;
-        left: 0;
-        right: 0;
-    }
-    
-    .timeline-icon {
-        left: 40px;
-        transform: translateX(-50%);
-    }
-    
-    .timeline-year {
-        position: relative;
-        top: auto;
-        width: 100%;
-        font-size: 1.5em;
-        padding-top: 10px;
-        margin-top: 10px;
-        border-top: 1px solid rgba(0, 229, 201, 0.3);
-    }
-    
-    .timeline-year.left,
-    .timeline-year.right {
-        left: auto;
-        right: auto;
-        text-align: left;
-        margin-left: 80px;
-    }
-}
-
-@media (max-width: 768px) {
-    .timeline-content.left,
-    .timeline-content.right {
-      width: 90%; /* Reduce from 100% */
-      margin: 0 auto;
-    }
-  }
 
 /* Additional adjustments for even smaller screens */
 /* Base timeline styles (for larger screens first - above 1120px) */
@@ -762,16 +608,17 @@ nav {
     .timeline {
         max-width: 90%;
     }
-    
+
     .timeline::before {
-        left: 40px; /* Timeline on the left side for smaller screens */
+        left: 40px;
+        /* Timeline on the left side for smaller screens */
         transform: none;
     }
-    
+
     .timeline-item {
         flex-direction: column;
     }
-    
+
     .timeline-content.left,
     .timeline-content.right {
         width: calc(100% - 80px);
@@ -781,22 +628,23 @@ nav {
         left: 0;
         right: 0;
     }
-    
+
     .timeline-icon {
         left: 40px;
         transform: translateX(-50%);
     }
-    
+
+
     .timeline-year {
         position: relative;
         top: auto;
         width: 100%;
-        font-size: 1.5em;
+        font-size: 1em;
         padding-top: 10px;
         margin-top: 10px;
         border-top: 1px solid rgba(0, 229, 201, 0.3);
     }
-    
+
     .timeline-year.left,
     .timeline-year.right {
         left: auto;
@@ -812,12 +660,12 @@ nav {
         max-width: 95%;
         margin: 20px auto;
     }
-    
+
     /* Remove the vertical timeline line */
     .timeline::before {
         display: none;
     }
-    
+
     .timeline-item {
         display: flex;
         flex-direction: column;
@@ -826,23 +674,25 @@ nav {
         position: relative;
         padding-top: 100px;
     }
-    
+
     /* Position the icon at the top */
     .timeline-icon {
         position: absolute;
-        left: 50%; /* Center it */
+        left: 50%;
+        /* Center it */
         top: 0;
-        transform: translateX(-50%); /* Center it properly */
+        transform: translateX(-50%);
+        /* Center it properly */
         width: 80px;
         height: 80px;
         z-index: 2;
     }
-    
+
     .timeline-icon img {
         width: 70px;
         height: 70px;
     }
-    
+
     /* Make content full width */
     .timeline-content.left,
     .timeline-content.right {
@@ -854,7 +704,7 @@ nav {
         left: auto;
         right: auto;
     }
-    
+
     /* Year at the bottom */
     .timeline-year.left,
     .timeline-year.right {
@@ -867,8 +717,16 @@ nav {
         right: auto;
         top: auto;
     }
+
     .timeline-school {
-        font-size: 1.4rem;
+        font-size: 1rem;
+    }
+
+    .timeline-program{
+        font-size: .9rem;
+    }
+    .timeline-achievements{
+        font-size: .8rem;
     }
 }
 
@@ -902,22 +760,24 @@ nav {
     padding-left: 0;
 }
 
-.works a{
+.works a {
     text-decoration: none;
     color: inherit;
     align-items: center;
     display: inline-flex;
 }
-.works h3{
+
+.works h3 {
     font-size: 40px;
-    transition: all 0.3s ease; /* This creates the smooth animation */
-    transform: translateY(0); 
+    transition: all 0.3s ease;
+    /* This creates the smooth animation */
+    transform: translateY(0);
     position: relative;
     margin: 0;
     padding: 1em 0 0 0;
 }
 
-.works h3:hover{
+.works h3:hover {
     transform: translateY(-5px);
     text-shadow: 0 3px 15px rgba(15, 245, 215, 0.3);
 }
@@ -934,7 +794,8 @@ nav {
 }
 
 .works h3:hover img {
-    transform: translateY(-2px); /* Optional: slight additional lift for the icon */
+    transform: translateY(-2px);
+    /* Optional: slight additional lift for the icon */
 }
 
 .works-container {
@@ -999,7 +860,8 @@ nav {
 .project-description p {
     font-family: 'FigtreeLight';
     font-size: 16px;
-    color: #f5f5f5; /* Light text color for readability */
+    color: #f5f5f5;
+    /* Light text color for readability */
     margin: 0;
 }
 
@@ -1062,7 +924,8 @@ nav {
 }
 
 .project-mobile-img {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
     width: 100%;
     max-width: 350px;
     height: auto;
@@ -1078,19 +941,52 @@ nav {
     }
 
     .project-images {
-        display: none; /* Hide the sticky container on mobile */
+        display: none;
+        padding: 0;
+        /* Hide the sticky container on mobile */
     }
 
     .project {
         margin: 0 0 2em 0;
-        opacity: 1 !important; /* Keep all projects visible on mobile */
+        opacity: 1 !important;
+        /* Keep all projects visible on mobile */
     }
-    
+
     /* Show mobile images on small screens */
     .project-mobile-img {
         display: block;
         max-width: auto;
     }
+
+    .works-heading h3 {
+        font-size: 1.7em;
+    }
+
+    .project-content h3{
+        font-size: 1.5em;
+    }
+    .project-role, .project-year{
+        font-size: .9em;
+        margin-bottom: 0;
+    }
+
+    .project-year{
+        margin-bottom: 2px;
+    }
+
+    .project-description p, li{
+        font-size: .7em;
+    }
+
+    .project-details{
+        margin-bottom: 5px;
+    }
+
+    .tech-tag {
+        font-size: .7em;
+    }
+
+
 }
 
 /* Skills Section */
@@ -1166,13 +1062,13 @@ nav {
 }
 
 .tech-stack-carousel {
-    max-width: 800px;
+    width: 600px;
     margin: 0;
     box-sizing: border-box;
     background-color: #171A1C;
     overflow: hidden;
     white-space: nowrap;
-    padding: 20px 20px;
+    /* padding: 20px 20px; */
     position: relative;
 }
 
@@ -1220,6 +1116,40 @@ nav {
     }
 }
 
+@media (max-width: 600px) {
+    .tech-stack-carousel {
+        width: 300px;
+    }
+
+    .tech-stack-carousel:after,
+    .tech-stack-carousel:before {
+        display: none;
+    }
+
+    .logos-slide svg {
+        height: 30px;
+        /* Fixed incorrect margin syntax */
+        fill: #FFFFFF;
+    }
+
+    .skills .sub-title{
+        font-size: 1.5rem;
+    }
+
+    .skills p{
+        font-size: .7rem;
+    }
+
+    .skills p .highlight{
+        font-size: .7rem;
+    }
+
+    .skills .tech-tag{
+        font-size: .7em;
+    }
+
+
+}
 
 /* Footer */
 .footer {
@@ -1346,7 +1276,8 @@ button:hover {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0rem; /* match the footer's bottom padding */
+    bottom: 0rem;
+    /* match the footer's bottom padding */
     border-top: 1px solid #0ff5d7;
     border-left: 1px solid #0ff5d7;
     border-right: 1px solid #0ff5d7;
@@ -1361,15 +1292,18 @@ button:hover {
 }
 
 @media (max-width: 900px) {
-    
+
     .footer {
-        padding: 3rem 2rem 3rem; /* Reduce bottom padding significantly */
-        overflow: visible; /* In case overflow:hidden is causing issues */
+        padding: 3rem 2rem 3rem;
+        /* Reduce bottom padding significantly */
+        overflow: visible;
+        /* In case overflow:hidden is causing issues */
     }
 
     .logo-container {
         position: static;
-        display: none; /* Hide the logo container completely */
+        display: none;
+        /* Hide the logo container completely */
     }
 
 
@@ -1388,44 +1322,54 @@ button:hover {
         flex-direction: column;
         gap: 1.5rem;
     }
-    
+
     .form-left,
     .form-right {
         width: 100%;
     }
-    
+
     /* Remove the grid column properties that may be conflicting */
     .form-left,
     .form-right {
         grid-column: unset;
         grid-row: unset;
     }
-    
+
     /* Make sure the button doesn't have float that could affect layout */
     .form-right button {
         width: 100%;
         float: none;
     }
+
+    @media (max-width: 500px) {
+        
+        .form-group label{
+            font-size: .9em;
+        }
+
+    }
+
 }
 
 
-.autoBlur{
+.autoBlur {
     animation: autoBlurAnimation linear both;
     animation-timeline: view();
 }
 
 @keyframes autoBlurAnimation {
-    0%{
+    0% {
         filter: blur(40px);
         opacity: 0;
     }
 
-    35%, 65%{
+    35%,
+    65% {
         filter: blur(0);
         opacity: 1;
     }
 
-    100%{
+    100% {
         filter: blur(40px);
         opacity: 0;
     }
