@@ -867,7 +867,7 @@ nav {
 
 /* Works Section */
 .works {
-    padding: 20vh 2rem;
+    padding: 2rem 2rem 7.5rem 2rem;
     background-color: var(--dark-bg);
     position: relative;
 }
@@ -884,14 +884,13 @@ nav {
 
 .works h2 {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .works-heading {
     color: var(--primary-color);
-    font-size: 2rem;
+    font-size: 48px;
     margin-bottom: 2rem;
-    margin-left: 1vh;
     align-items: center;
     padding-left: 0;
 }
@@ -903,6 +902,7 @@ nav {
     display: inline-flex;
 }
 .works h3{
+    font-size: 40px;
     transition: all 0.3s ease; /* This creates the smooth animation */
     transform: translateY(0); 
     position: relative;
@@ -911,20 +911,19 @@ nav {
 }
 
 .works h3:hover{
-    color: #0ff5d7;
     transform: translateY(-5px);
     text-shadow: 0 3px 15px rgba(15, 245, 215, 0.3);
 }
 
-.works a img{
+.works h3 span img {
     margin-left: 5px;
     height: 1rem;
     width: auto;
     transition: all 0.3s ease;
-    filter: brightness(1)
 }
-.works a img:hover{
-    fill: #0ff5d7;
+
+.works h3:hover span img {
+    transform: translateY(-2px);
 }
 
 .works h3:hover img {
@@ -947,6 +946,8 @@ nav {
     padding-bottom: 2rem;
     transition: opacity 0.3s ease;
     opacity: 1;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .project-content {
@@ -956,8 +957,7 @@ nav {
 .project h3 {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
-    font-size: 1.8rem;
+    font-size: 32px;
 }
 
 .project h3 span {
@@ -967,12 +967,13 @@ nav {
 
 .project-role {
     color: var(--primary-color);
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 24px;
+    color: var(--primary-color);
+
 }
 
 .project-year {
-    font-size: 1.2rem;
+    font-size: 18px;
     margin-bottom: 1rem;
 }
 
@@ -980,9 +981,24 @@ nav {
     list-style-type: disc;
     padding-left: 1.5rem;
     margin-bottom: 2em;
+    line-height: 1.2;
+}
+
+.project-description {
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.project-description p {
+    font-family: 'FigtreeLight';
+    font-size: 16px;
+    color: #f5f5f5; /* Light text color for readability */
+    margin: 0;
 }
 
 .project-details li {
+    font-family: 'FigtreeLight';
+    font-weight: 500;
     margin-bottom: 0.5rem;
 }
 
@@ -998,7 +1014,7 @@ nav {
     color: var(--primary-color);
     padding: 5px 15px;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 16px;
     font-weight: 500;
     transition: all 0.3s ease;
 }
@@ -1059,7 +1075,7 @@ nav {
     }
 
     .project {
-        margin: 2em;
+        margin: 0 0 2em 0;
         opacity: 1 !important; /* Keep all projects visible on mobile */
     }
     
