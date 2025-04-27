@@ -1042,6 +1042,7 @@ header a:hover {
     width: 100%;
     margin: 0 auto;
     padding: 10vh;
+    height: 100vh;
     padding-bottom: 20vh;
     background-color: var(--mainbg-color);
 }
@@ -1170,12 +1171,15 @@ header a:hover {
     color: var(--mainbg-color);
 }
 
-.modal img {
-    width: 100%;
-    max-height: 55vh;
+.modal-content img {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 45vh;
     object-fit: contain;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
+    margin: 0 auto;
 
 }
 
