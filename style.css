@@ -1437,31 +1437,7 @@ button:disabled {
     }
 }
 
-/* AUTOBLUR ANIMATION */
 
-.autoBlur {
-    animation: autoBlurAnimation linear both;
-    animation-timeline: view();
-}
-
-@keyframes autoBlurAnimation {
-    0% {
-        filter: blur(40px);
-    }
-
-    40%,
-    60% {
-        filter: blur(0);
-        transform: translateY(0px);
-        opacity: 1;
-    }
-
-    100% {
-        filter: blur(40px);
-        transform: translateY(-200px);
-        opacity: 0;
-    }
-}
 
 /* Form validation and status message styles */
 #contact-form input.error,
@@ -1576,6 +1552,8 @@ button:disabled {
 }
 
 @media (max-width: 768px) {
+    
+
     .cont-heading {
         font-size: 15px;
     }
@@ -1616,6 +1594,41 @@ button:disabled {
 
 }
 
+
+/* AUTOBLUR ANIMATION */
+
+.autoBlur {
+    animation: autoBlurAnimation linear both;
+    animation-timeline: view();
+}
+
+@keyframes autoBlurAnimation {
+    0% {
+        filter: blur(40px);
+    }
+
+    40%,
+    60% {
+        filter: blur(0);
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    100% {
+        filter: blur(40px);
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .autoBlur {
+        animation: none;
+        filter: blur(0) !important;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+    }
+}
 
 /* AUTOTAKEFULL IMAGE */
 
