@@ -1042,7 +1042,7 @@ header a:hover {
     width: 100%;
     margin: 0 auto;
     padding: 10vh;
-    height: 100vh;
+    height: auto;
     padding-bottom: 20vh;
     background-color: var(--mainbg-color);
 }
